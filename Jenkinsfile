@@ -3,24 +3,24 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-               bat "rmdir  /s /q TicketBookingServiceJunitTesting"
-                bat "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
-                bat "mvn clean -f TicketBookingServiceJunitTesting"
+               bat "rmdir  /s /q spring-jenkins-docker-integration"
+                bat "git clone https://github.com/VasuDanapana/spring-jenkins-docker-integration.git"
+                bat "mvn clean -f spring-jenkins-docker-integration"
             }
         }
         stage('install') {
             steps {
-                bat "mvn install -f TicketBookingServiceJunitTesting"
+                bat "mvn install -f spring-jenkins-docker-integration"
             }
         }
         stage('test') {
             steps {
-                bat "mvn test -f TicketBookingServiceJunitTesting"
+                bat "mvn test -f spring-jenkins-docker-integration"
             }
         }
         stage('package') {
             steps {
-                bat "mvn package -f TicketBookingServiceJunitTesting"
+                bat "mvn package -f spring-jenkins-docker-integration"
             }
         }
     }
