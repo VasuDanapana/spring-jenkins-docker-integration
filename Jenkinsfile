@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-               bat "rmdir  /s /q spring-jenkins-docker-integration"
+                //bat "rmdir  /s /q spring-jenkins-docker-integration"
                 bat "git clone https://github.com/VasuDanapana/spring-jenkins-docker-integration.git"
                 bat "mvn clean -f spring-jenkins-docker-integration"
             }
